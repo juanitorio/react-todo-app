@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { v4 as uuid } from "uuid";
 import Header from "./components/Header";
 import TodoList from "./components/TodoList";
 import AddTodo from "./components/AddTodo";
@@ -8,17 +9,17 @@ class App extends Component {
     state = {
         todos: [
             {
-                id: 1,
+                id: uuid(),
                 task: "Learn JavaScript",
                 completed: false
             },
             {
-                id: 2,
+                id: uuid(),
                 task: "Learn ES6+",
                 completed: false
             },
             {
-                id: 3,
+                id: uuid(),
                 task: "Learn React",
                 completed: false
             }
@@ -42,7 +43,7 @@ class App extends Component {
 
     formSubmit = value => {
         const newTodo = {
-            id: 4,
+            id: uuid(),
             task: value,
             completed: false
         };
