@@ -1,11 +1,13 @@
 import React, { Component } from "react";
+import Todo from "./Todo";
 
 export default class TodoList extends Component {
     render() {
         return (
             <ul className="todo-list">
-                <li>Todo 1</li>
-                <li>Todo 2</li>
+                {this.props.todos.map((current, index) => (
+                    <Todo key={index} todo={current} />
+                ))}
             </ul>
         );
     }
