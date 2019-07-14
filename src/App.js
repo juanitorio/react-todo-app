@@ -28,8 +28,14 @@ class App extends Component {
         ]
     };
 
-    markCompleted = id => {
-        this.setState({
+    async componentDidMount() {
+        const todosFromLocalStorage = JSON.parse(localStorage.getItem("todos"));
+
+        if (todosFromLocalStorage) await this.setState({ todos: todosFromLocalStorage });
+    }
+
+    markCompleted = async id => {
+        await this.setState({
             todos: this.state.todos.map(todo => {
                 if (todo.id === id) {
                     todo.completed = !todo.completed;
@@ -37,21 +43,31 @@ class App extends Component {
                 return todo;
             })
         });
+
+        this.saveToLocalStorage();
     };
 
-    deleteTodo = id => {
-        this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)] });
+    deleteTodo = async id => {
+        await this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)] });
+
+        this.saveToLocalStorage();
     };
 
-    formSubmit = value => {
+    formSubmit = async value => {
         const newTodo = {
             id: uuid(),
             task: value,
             completed: false
         };
-        this.setState({
+        await this.setState({
             todos: [...this.state.todos, newTodo]
         });
+
+        this.saveToLocalStorage();
+    };
+
+    saveToLocalStorage = () => {
+        localStorage.setItem("todos", JSON.stringify(this.state.todos));
     };
 
     render() {
