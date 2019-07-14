@@ -24,7 +24,7 @@ export default class AddTodo extends Component {
         return (
             <form onSubmit={this.formSubmit}>
                 <input type="text" placeholder="Add Todo..." value={this.state.value} onChange={this.onValueChange} />
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Submit" hidden />
             </form>
         );
     }
