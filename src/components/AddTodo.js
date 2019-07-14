@@ -5,6 +5,10 @@ export default class AddTodo extends Component {
         value: ""
     };
 
+    componentDidMount() {
+        this.input.focus();
+    }
+
     onValueChange = e => {
         const newValue = e.target.value;
         this.setState({
@@ -23,7 +27,13 @@ export default class AddTodo extends Component {
     render() {
         return (
             <form onSubmit={this.formSubmit}>
-                <input type="text" placeholder="Add Todo..." value={this.state.value} onChange={this.onValueChange} />
+                <input
+                    ref={input => (this.input = input)}
+                    type="text"
+                    placeholder="Add Todo..."
+                    value={this.state.value}
+                    onChange={this.onValueChange}
+                />
                 <input type="submit" value="Submit" hidden />
             </form>
         );
