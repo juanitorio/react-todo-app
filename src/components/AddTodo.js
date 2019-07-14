@@ -18,10 +18,13 @@ export default class AddTodo extends Component {
 
     formSubmit = e => {
         e.preventDefault();
-        this.props.formSubmit(this.state.value);
-        this.setState({
-            value: ""
-        });
+
+        if (this.state.value !== "") {
+            this.props.formSubmit(this.state.value);
+            this.setState({
+                value: ""
+            });
+        }
     };
 
     render() {
