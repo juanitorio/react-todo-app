@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "./components/Header";
 import TodoList from "./components/TodoList";
+import AddTodo from "./components/AddTodo";
 import "./App.css";
 
 class App extends Component {
@@ -39,11 +40,23 @@ class App extends Component {
         this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)] });
     };
 
+    formSubmit = value => {
+        const newTodo = {
+            id: 4,
+            task: value,
+            completed: false
+        };
+        this.setState({
+            todos: [...this.state.todos, newTodo]
+        });
+    };
+
     render() {
         return (
             <div className="App">
                 <div className="App-header">
                     <Header />
+                    <AddTodo formSubmit={this.formSubmit} />
                     <TodoList todos={this.state.todos} markCompleted={this.markCompleted} deleteTodo={this.deleteTodo} />
                 </div>
             </div>
