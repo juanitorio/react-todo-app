@@ -48,9 +48,18 @@ header {
 }
 
 .todo-list li {
-    padding: 3px;
+    padding: 6px;
+    padding-bottom: 4px;
+    border-bottom: 1px #fff solid;
+    margin-bottom: 10px;
 }
 
 .todo-list li label {
     cursor: pointer;
 }
+
+.todo-list li label input[type="checkbox"] {
+    margin-right: 10px;
+    float: left;
+}
+
