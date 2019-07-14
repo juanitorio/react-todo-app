@@ -6,7 +6,7 @@ export default class Todo extends Component {
         return (
             <li>
                 <label style={{ textDecoration: completed ? "line-through" : "none" }}>
-                    <input type="checkbox" onChange={this.props.markCompleted.bind(this, id)} /> {task}
+                    <input type="checkbox" onChange={this.props.markCompleted.bind(this, id)} checked={completed} /> {task}
                 </label>
                 <button className="btn-delete" onClick={this.props.deleteTodo.bind(this, id)}>
                     X
