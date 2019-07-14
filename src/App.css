@@ -63,3 +63,15 @@ header {
     float: left;
 }
 
+.btn-delete {
+    background: #61dafb;
+    color: #282c34;
+    border: none;
+    padding: 1.5px 3.5px;
+    border-radius: 50%;
+    cursor: pointer;
+    float: right;
+    outline: none;
+    margin-left: 20px;
+    vertical-align: middle;
+}
