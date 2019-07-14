@@ -6,7 +6,7 @@ export default class TodoList extends Component {
         return (
             <ul className="todo-list">
                 {this.props.todos.map((current, index) => (
-                    <Todo key={index} todo={current} />
+                    <Todo key={index} todo={current} markCompleted={this.props.markCompleted} />
                 ))}
             </ul>
         );
