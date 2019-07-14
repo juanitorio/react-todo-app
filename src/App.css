@@ -50,3 +50,7 @@ header {
 .todo-list li {
     padding: 3px;
 }
+
+.todo-list li label {
+    cursor: pointer;
+}
