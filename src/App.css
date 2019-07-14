@@ -36,3 +36,9 @@
         transform: rotate(360deg);
     }
 }
+
+.todo-list {
+    font-size: calc(10px + 1vmin);
+    padding: 0;
+    list-style: none;
+}
